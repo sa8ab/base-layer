@@ -8,10 +8,10 @@
             v-if="icon"
             class="icon"
             :style="`--r-icon-color: ${iconColor}`"
-            :size="iconSize"
+            :size="iconSize || 'large'"
           />
           <slot name="icon" />
-          <div class="title f500">{{ title }}</div>
+          <div class="title f500 flarge">{{ title }}</div>
         </slot>
       </div>
       <div class="right">
@@ -52,14 +52,14 @@ const hasHeader = computed(
   background: color(b2);
   display: flex;
   flex-direction: column;
+  padding: space(3);
 }
 .header {
-  padding: space(2);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: space(1);
-  padding-bottom: 0;
+  padding-bottom: space(3);
   .left {
     display: flex;
     align-items: center;
@@ -70,17 +70,14 @@ const hasHeader = computed(
   }
 }
 .main {
-  padding: space(2);
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 .noPadding {
-  .main {
-    padding: 0;
-  }
+  padding: 0;
   .header {
-    padding-bottom: space(2);
+    padding: space(3);
   }
 }
 .hoverable {
