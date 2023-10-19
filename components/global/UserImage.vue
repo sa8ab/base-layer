@@ -1,6 +1,7 @@
 <template>
   <div class="user-image" :style="{ width, height: width }">
-    <span v-if="firstLetter">{{ firstLetter }}</span>
+    <Image :src="src" v-if="src" />
+    <span v-else-if="firstLetter">{{ firstLetter }}</span>
     <Icon name="user" v-else />
   </div>
 </template>
@@ -10,6 +11,7 @@ const props = withDefaults(
   defineProps<{
     name?: string;
     width?: string;
+    src?: string;
   }>(),
   {
     width: "32px",
@@ -29,5 +31,6 @@ const firstLetter = computed(() => {
   background: color(alt, var(--light-alpha));
   color: color(alt);
   border-radius: 50%;
+  overflow: hidden;
 }
 </style>
