@@ -1,5 +1,5 @@
 <template>
-  <div class="no-items" v-if="!loading && !length">
+  <div class="no-items" v-if="canShow">
     <slot name="icon">
       <Icon :name="icon" v-if="icon" class="icon" size="xxlarge" />
     </slot>
@@ -12,7 +12,14 @@ const props = defineProps<{
   loading?: boolean;
   length?: number;
   icon?: string;
+  custom?: boolean;
 }>();
+
+const canShow = computed(() => {
+  if (props.custom) return true;
+  if (!props.loading && !props.length) return true;
+  return false;
+});
 </script>
 
 <style scoped lang="scss">

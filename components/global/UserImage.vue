@@ -28,7 +28,7 @@ const firstLetter = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: color(alt, var(--light-alpha));
+  background: color(alt, var(--r-light-alpha));
   color: color(alt);
   border-radius: 50%;
   overflow: hidden;
