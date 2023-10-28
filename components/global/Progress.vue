@@ -33,7 +33,7 @@ defineProps({
   width: 100%;
   overflow: hidden;
   border-radius: 14px;
-  background: color(hover, var(--hover-alpha));
+  background: color(hover, var(--r-hover-alpha));
 
   .line {
     background-color: rgba(var(--color), 1);
