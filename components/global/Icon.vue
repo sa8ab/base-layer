@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { defineAsyncComponent } from "vue";
-import { AsyncComponentLoader } from "nuxt/dist/app/compat/capi";
+import type { AsyncComponentLoader } from "nuxt/dist/app/compat/capi";
 
 const props = withDefaults(
   defineProps<{

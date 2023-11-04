@@ -1,5 +1,5 @@
-import { AsyncDataOptions } from "#app";
-import { AxiosResponse } from "axios";
+import type { AsyncDataOptions } from "#app";
+import type { AxiosResponse } from "axios";
 
 type Req<T> = () => Promise<AxiosResponse<T> | T | void | {}>;
 

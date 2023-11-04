@@ -25,7 +25,7 @@ const { t } = useI18n();
       >
         {{ submitText || t("submit") }}
       </RButton>
-      <RButton cancel @click="emit('cancel')">{{
+      <RButton variant="bordered" @click="emit('cancel')">{{
         cancelText || t("cancel")
       }}</RButton>
     </div>

@@ -1,13 +1,11 @@
 <template>
-  <ClientOnly>
-    <HeightTransition>
-      <div v-if="loading" class="loading" v-bind="$attrs">
-        <div class="container" :style="{ height, maxWidth }">
-          <Progress infinite />
-        </div>
+  <HeightTransition>
+    <div v-if="loading" class="loading" v-bind="$attrs">
+      <div class="container" :style="{ height, maxWidth }">
+        <Progress infinite />
       </div>
-    </HeightTransition>
-  </ClientOnly>
+    </div>
+  </HeightTransition>
 </template>
 
 <script setup lang="ts">
