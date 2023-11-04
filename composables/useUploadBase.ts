@@ -1,4 +1,4 @@
-import type { AxiosInstance, AxiosProgressEvent } from "axios";
+import { type AxiosInstance, type AxiosProgressEvent } from "axios";
 
 interface Params<T> {
   onUpload: (arg0: T) => void;

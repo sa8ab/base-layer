@@ -10,7 +10,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   loading?: boolean;
-  length?: number;
+  length?: number | boolean;
   icon?: string;
   custom?: boolean;
 }>();
