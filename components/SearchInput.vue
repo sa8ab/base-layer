@@ -33,6 +33,7 @@ const onSearch = () => {
 };
 
 const onClear = () => {
+  search.value = "";
   emit("clear");
   return navigateTo(
     localeRoute({
@@ -57,9 +58,9 @@ const {} = useFilter({
     <template #after>
       <div class="after">
         <RButton
+          variant="flat"
           customSize="32px"
           iconOnly
-          flat
           round
           color="red"
           v-if="search"
@@ -69,8 +70,8 @@ const {} = useFilter({
         </RButton>
         <RButton
           customSize="32px"
+          variant="flat"
           iconOnly
-          variant="fill"
           round
           @click="onSearch"
         >
