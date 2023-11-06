@@ -8,18 +8,73 @@ const props = withDefaults(
   }
 );
 
+const route = useRoute();
+const localeRoute = useLocaleRoute();
+
+const emit = defineEmits<{
+  search: [string | undefined];
+  clear: [];
+}>();
+
 const search = ref<string>("");
+
+const onSearch = () => {
+  emit("search", search.value);
+
+  return navigateTo(
+    localeRoute({
+      query: {
+        ...route.query,
+        page: undefined,
+        [props.queryKey]: search.value,
+      },
+    })
+  );
+};
+
+const onClear = () => {
+  emit("clear");
+  return navigateTo(
+    localeRoute({
+      query: {
+        ...route.query,
+        page: undefined,
+        [props.queryKey]: undefined,
+      },
+    })
+  );
+};
+
+const {} = useFilter({
+  queryToData: () => {
+    search.value = (route.query[props.queryKey] as string) || "";
+  },
+});
 </script>
 
 <template>
-  <RInput :placeholder="$t('search')" v-model="search">
+  <RInput :placeholder="$t('search')" v-model="search" @keyup.enter="onSearch">
     <template #after>
       <div class="after">
-        <RButton iconOnly flat round>
-          <Icon name="search" size="small" />
-        </RButton>
-        <RButton iconOnly flat round color="red">
+        <RButton
+          customSize="32px"
+          iconOnly
+          flat
+          round
+          color="red"
+          v-if="search"
+          @click="onClear"
+        >
           <Icon name="close" size="small" />
+        </RButton>
+        <RButton
+          customSize="32px"
+          iconOnly
+          variant="fill"
+          round
+          @click="onSearch"
+        >
+          <Icon name="search" size="small" />
         </RButton>
       </div>
     </template>
@@ -28,7 +83,9 @@ const search = ref<string>("");
 
 <style scoped lang="scss">
 .after {
+  padding: 0 2px;
   display: flex;
   align-items: center;
+  gap: 2px;
 }
 </style>
