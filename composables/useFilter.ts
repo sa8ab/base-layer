@@ -12,11 +12,11 @@ export default ({
 }: UseFilterParams = {}) => {
   const localeRoute = useLocaleRoute();
   const route = useRoute();
-  const page = ref<number>(initialPage);
+  const page = ref<number | undefined>(initialPage);
 
   onMounted(() => {
     queryToData?.();
-    page.value = parseInt(route.query.page as string) || 1;
+    page.value = parseInt(route.query.page as string) || undefined;
   });
 
   watch(
@@ -25,7 +25,7 @@ export default ({
       getAll?.();
       queryToData?.();
       onQueryChange?.();
-      page.value = parseInt(route.query.page as string) || 1;
+      page.value = parseInt(route.query.page as string) || undefined;
     }
   );
 
@@ -49,7 +49,7 @@ export default ({
     );
   };
 
-  const hasFilters = computed(() => Object.keys(route.query).length);
+  const hasFilters = computed(() => Object.values(route.query).some((v) => v));
 
   return {
     page,
