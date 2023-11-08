@@ -37,7 +37,7 @@ const props = defineProps<{
   noHeader?: boolean;
 }>();
 
-const iconColor = useColor(toRef(props, "iconColor"));
+const { color: iconColor } = useColor(toRef(props, "iconColor"));
 
 const slots = useSlots();
 
