@@ -15,7 +15,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <div class="r-popup-footer">
+  <div class="popup-footer">
     <div class="actions">
       <RButton
         fill
@@ -34,7 +34,7 @@ const { t } = useI18n();
 </template>
 
 <style scoped lang="scss">
-.r-popup-footer {
+.popup-footer {
   padding: space(2);
   display: flex;
   align-items: center;

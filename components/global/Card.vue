@@ -48,18 +48,19 @@ const hasHeader = computed(
 
 <style scoped lang="scss">
 .card {
+  --space: var(--r-space-3);
   border-radius: var(--r-radius);
   background: color(b2);
   display: flex;
   flex-direction: column;
-  padding: space(3);
+  padding: var(--space);
 }
 .header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: space(1);
-  padding-bottom: space(3);
+  padding-bottom: var(--space);
   .left {
     display: flex;
     align-items: center;
@@ -77,7 +78,7 @@ const hasHeader = computed(
 .noPadding {
   padding: 0;
   .header {
-    padding: space(3);
+    padding: var(--space);
   }
 }
 .hoverable {
