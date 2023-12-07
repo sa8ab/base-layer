@@ -3,8 +3,17 @@
     <span class="text">{{ context?.text }}</span>
     <template #footer>
       <div class="r-popup-footer actions">
-        <RButton @click="onSubmit" :color="context?.color" fill>Submit</RButton>
-        <RButton @click="close" :flat="true" cancel> Cancel </RButton>
+        <RButton
+          @click="onSubmit"
+          :color="context?.color"
+          variant="fill"
+          :loading="loading"
+        >
+          Submit
+        </RButton>
+        <RButton @click="close" :flat="true" variant="bordered">
+          Cancel
+        </RButton>
       </div>
     </template>
   </RPopup>
@@ -13,8 +22,10 @@
 <script setup lang="ts">
 const { popup, context, close } = usePopup("confirm");
 
-const onSubmit = () => {
-  context.value?.onAccept?.();
+const loading = ref<boolean>(false);
+
+const onSubmit = async () => {
+  await context.value?.onAccept?.({ loading });
   close();
 };
 </script>
