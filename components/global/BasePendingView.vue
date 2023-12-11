@@ -7,7 +7,7 @@ const props = defineProps<{
 
 <template>
   <Loading :loading="pending" />
-  <ErrorView :error="error" v-if="error" />
+  <BaseErrorView :error="error" v-if="error" />
   <slot v-else />
 </template>
 
