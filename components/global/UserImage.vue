@@ -32,5 +32,6 @@ const firstLetter = computed(() => {
   color: color(alt);
   border-radius: 50%;
   overflow: hidden;
+  text-decoration: none;
 }
 </style>
