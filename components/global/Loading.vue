@@ -15,7 +15,10 @@ withDefaults(
     maxWidth?: string;
     height?: string | number;
   }>(),
-  {}
+  {
+    maxWidth: "200px",
+    height: "6px",
+  }
 );
 defineOptions({
   inheritAttrs: false,
