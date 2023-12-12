@@ -1,8 +1,8 @@
 <template>
   <HeightTransition>
     <div v-if="loading" class="loading" v-bind="$attrs">
-      <div class="container" :style="{ height, maxWidth }">
-        <Progress infinite />
+      <div class="inner">
+        <Progress infinite :height="height" />
       </div>
     </div>
   </HeightTransition>
@@ -12,12 +12,10 @@
 withDefaults(
   defineProps<{
     loading?: boolean | number | null | string;
-    maxWidth?: string;
     height?: string | number;
   }>(),
   {
-    maxWidth: "200px",
-    height: "6px",
+    height: 4,
   }
 );
 defineOptions({
@@ -31,7 +29,7 @@ defineOptions({
   display: flex;
   justify-content: center;
 }
-.container {
+.inner {
   width: 100%;
   display: flex;
   align-items: center;

@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[`progress`, { infinite }]"
-    :style="{ height: `${height}px`, '--color': color }"
+    :style="{ height: `${height ?? 4}px`, '--color': color }"
   >
     <div class="line" :style="{ width: `${percent ?? 40}%` }"></div>
   </div>
@@ -15,7 +15,6 @@ defineProps({
   },
   height: {
     type: [Number, String],
-    default: 4,
   },
   percent: {
     type: Number,
