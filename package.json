@@ -13,7 +13,7 @@
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxtjs/i18n": "^8.0.0-rc.2",
-    "axios": "^1.4.0",
+    "axios": "^1.6.2",
     "eslint": "^8.28.0",
     "nuxt": "^3.7.4",
     "sass": "^1.64.2",
