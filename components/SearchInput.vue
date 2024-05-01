@@ -60,6 +60,7 @@ const {} = useFilter({
         <RButton
           variant="flat"
           customSize="32px"
+          type="button"
           iconOnly
           round
           color="red"
@@ -71,6 +72,7 @@ const {} = useFilter({
         <RButton
           customSize="32px"
           variant="flat"
+          type="button"
           iconOnly
           round
           @click="onSearch"
