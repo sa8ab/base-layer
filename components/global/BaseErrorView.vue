@@ -9,8 +9,8 @@ const props = withDefaults(
   }
 );
 const renderMessage = computed(() => {
-  if (!props.error?.response) return props.defaultMessage;
-  return props.error?.response?.data?.errors[0];
+  const message = getErrorMessage(props.error);
+  return message || props.defaultMessage;
 });
 </script>
 
